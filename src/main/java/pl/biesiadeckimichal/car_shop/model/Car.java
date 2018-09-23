@@ -4,12 +4,12 @@ import lombok.NoArgsConstructor;
 import pl.biesiadeckimichal.car_shop.model.enums.FuelType;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "cars")
 @NoArgsConstructor
 public class Car {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -52,5 +52,18 @@ public class Car {
 
     @Column
     private Integer test_drive_counter;
+
+    @ManyToMany(mappedBy = "customer_cars")
+    private Set<Car> customers;
+
+    @OneToMany(mappedBy = "car")
+    private Set<Transaction> transactions;
+
+
+
+
+
+
+
 
 }

@@ -23,4 +23,12 @@ public class Transaction {
 
     @Column
     private Double value;
+
+    @ManyToOne //(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @ManyToOne //(cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id")
+    private Car car;
 }

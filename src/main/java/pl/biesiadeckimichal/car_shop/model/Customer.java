@@ -3,6 +3,7 @@ package pl.biesiadeckimichal.car_shop.model;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -30,5 +31,16 @@ public class Customer {
 
     @Column
     private Integer pesel;
+
+    @ManyToMany //(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "customer_car",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "car_id"))
+    private Set<Car> cars;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Transaction> transactions;
+
 
 }
