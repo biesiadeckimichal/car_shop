@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "transactions")
+@Table(name = "transaction")
 @NoArgsConstructor
 public class Transaction {
 
@@ -31,4 +31,12 @@ public class Transaction {
     @ManyToOne //(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id")
     private Car car;
+
+    public Transaction(TransactionType transactionType, Date date, Double value, Customer customer, Car car) {
+        this.transactionType = transactionType;
+        this.date = date;
+        this.value = value;
+        this.customer = customer;
+        this.car = car;
+    }
 }

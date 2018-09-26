@@ -7,9 +7,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "car")
 @NoArgsConstructor
 public class Car {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -53,17 +54,45 @@ public class Car {
     @Column
     private Integer test_drive_counter;
 
-    @ManyToMany(mappedBy = "customer_cars")
-    private Set<Car> customers;
+    @ManyToMany(mappedBy = "cars")
+    private Set<Customer> customers;
 
     @OneToMany(mappedBy = "car")
     private Set<Transaction> transactions;
 
-
-
-
-
-
+    public Car(
+            String vin,
+            Integer year,
+            String mark,
+            String model,
+            String oc_number,
+            String registrationNumber,
+            FuelType fuelType,
+            Integer mileage,
+            Integer engineCapacity,
+            Integer power,
+            String transmission,
+            String description,
+            Integer test_drive_counter,
+            Set<Customer> customers,
+            Set<Transaction> transactions
+    ) {
+        this.vin = vin;
+        this.year = year;
+        this.mark = mark;
+        this.model = model;
+        this.oc_number = oc_number;
+        this.registrationNumber = registrationNumber;
+        this.fuelType = fuelType;
+        this.mileage = mileage;
+        this.engineCapacity = engineCapacity;
+        this.power = power;
+        this.transmission = transmission;
+        this.description = description;
+        this.test_drive_counter = test_drive_counter;
+        this.customers = customers;
+        this.transactions = transactions;
+    }
 
 
 }

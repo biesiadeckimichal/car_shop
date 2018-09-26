@@ -4,9 +4,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee")
 @NoArgsConstructor
 public class Employee {
 
@@ -25,4 +26,15 @@ public class Employee {
 
     @Column
     private Date employmentDate;
+
+    @OneToMany(mappedBy = "employee")
+    private Set<Invoice> invoices;
+
+    public Employee(String firstName, String lastName, String adress, Date employmentDate, Set<Invoice> invoices) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.adress = adress;
+        this.employmentDate = employmentDate;
+        this.invoices = invoices;
+    }
 }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "customer")
 @NoArgsConstructor
 public class Customer {
 
@@ -32,15 +32,37 @@ public class Customer {
     @Column
     private Integer pesel;
 
-    @ManyToMany //(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "customer_car",
-            joinColumns = @JoinColumn(name = "customer_id"),
-            inverseJoinColumns = @JoinColumn(name = "car_id"))
+            joinColumns = {@JoinColumn(name = "customer_id")},
+            inverseJoinColumns = {@JoinColumn(name = "car_id")}
+    )
     private Set<Car> cars;
 
     @OneToMany(mappedBy = "customer")
     private Set<Transaction> transactions;
+
+    public Customer(
+            Integer id,
+            Integer customerNumber,
+            String lastName,
+            String firstName,
+            String adress,
+            Integer nip,
+            Integer pesel,
+            Set<Car> cars,
+            Set<Transaction> transactions
+    ) {
+        this.customerNumber = customerNumber;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.adress = adress;
+        this.nip = nip;
+        this.pesel = pesel;
+        this.cars = cars;
+        this.transactions = transactions;
+    }
 
 
 }
