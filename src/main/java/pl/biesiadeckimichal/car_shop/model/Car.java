@@ -94,5 +94,9 @@ public class Car {
         this.transactions = transactions;
     }
 
-
+    public Car(Integer id, String mark, String model) {
+        this.id = id;
+        this.mark = mark;
+        this.model = model;
+    }
 }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "template/customer")
 @NoArgsConstructor
 public class Customer {
 
@@ -64,5 +64,13 @@ public class Customer {
         this.transactions = transactions;
     }
 
+    public Customer(Integer id, String lastName, String firstName) {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
 
+    public Integer getId() {
+        return id;
+    }
 }
