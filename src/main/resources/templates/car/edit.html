@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja samochodu</title>
+</head>
+<body>
+<!--gwiazdki pozwalaja na skrocenie nazwy, bez nich musialbym pisac np car.id-->
+<!--action odwoluje sie do adnotacji ktore mam przy controllerach
+czyli w przypadku /car/save, odwoluje sie do metody save idac po adnotacjach
+-->
+<form method="post" th:action="@{/car/save}" th:object="${car}">
+    <input type="hidden" name="id" disable="disable" placeholder="id"/></br>
+    <input type="text" name="year" placeholder="year"/></br>
+    <input type="text" name="mark" placeholder="mark"/></br>
+    <input type="text" name="model" placeholder="model"/></br>
+    <input type="submit" value="Ok">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista samochodów</title>
+</head>
+<body>
+<ul>
+    <li th:each="car : ${cars}">
+        <a th:href="@{'/car/' + ${car.id} + '/edit'}"
+           th:text="${car.year + ' ' + car.mark + ' ' + car.model}">
+        </a>
+    </li>
+</ul>
+
+</body>
+</html>
