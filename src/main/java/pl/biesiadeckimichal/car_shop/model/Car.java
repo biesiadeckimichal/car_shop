@@ -60,40 +60,6 @@ public class Car {
     @OneToMany(mappedBy = "car")
     private Set<Transaction> transactions;
 
-    public Car(
-            String vin,
-            Integer year,
-            String mark,
-            String model,
-            String oc_number,
-            String registrationNumber,
-            FuelType fuelType,
-            Integer mileage,
-            Integer engineCapacity,
-            Integer power,
-            String transmission,
-            String description,
-            Integer test_drive_counter,
-            Set<Customer> customers,
-            Set<Transaction> transactions
-    ) {
-        this.vin = vin;
-        this.year = year;
-        this.mark = mark;
-        this.model = model;
-        this.oc_number = oc_number;
-        this.registrationNumber = registrationNumber;
-        this.fuelType = fuelType;
-        this.mileage = mileage;
-        this.engineCapacity = engineCapacity;
-        this.power = power;
-        this.transmission = transmission;
-        this.description = description;
-        this.test_drive_counter = test_drive_counter;
-        this.customers = customers;
-        this.transactions = transactions;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -156,5 +122,69 @@ public class Car {
 
     public Set<Transaction> getTransactions() {
         return transactions;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public void setMark(String mark) {
+        this.mark = mark;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setOc_number(String oc_number) {
+        this.oc_number = oc_number;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public void setMileage(Integer mileage) {
+        this.mileage = mileage;
+    }
+
+    public void setEngineCapacity(Integer engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
+
+    public void setPower(Integer power) {
+        this.power = power;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTest_drive_counter(Integer test_drive_counter) {
+        this.test_drive_counter = test_drive_counter;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }

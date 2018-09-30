@@ -43,27 +43,6 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private Set<Transaction> transactions;
 
-    public Customer(
-            Integer id,
-            Integer customerNumber,
-            String lastName,
-            String firstName,
-            String adress,
-            Integer nip,
-            Integer pesel,
-            Set<Car> cars,
-            Set<Transaction> transactions
-    ) {
-        this.customerNumber = customerNumber;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.adress = adress;
-        this.nip = nip;
-        this.pesel = pesel;
-        this.cars = cars;
-        this.transactions = transactions;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -98,5 +77,41 @@ public class Customer {
 
     public Set<Transaction> getTransactions() {
         return transactions;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCustomerNumber(Integer customerNumber) {
+        this.customerNumber = customerNumber;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public void setNip(Integer nip) {
+        this.nip = nip;
+    }
+
+    public void setPesel(Integer pesel) {
+        this.pesel = pesel;
+    }
+
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
+    }
+
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }
