@@ -113,4 +113,48 @@ public class Car {
     public String getModel() {
         return model;
     }
+
+    public String getOc_number() {
+        return oc_number;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public Integer getMileage() {
+        return mileage;
+    }
+
+    public Integer getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public Integer getPower() {
+        return power;
+    }
+
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getTest_drive_counter() {
+        return test_drive_counter;
+    }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public Set<Transaction> getTransactions() {
+        return transactions;
+    }
 }

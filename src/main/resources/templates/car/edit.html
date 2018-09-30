@@ -10,11 +10,23 @@
 czyli w przypadku /car/save, odwoluje sie do metody save idac po adnotacjach
 -->
 <form method="post" th:action="@{/car/save}" th:object="${car}">
-    <input type="hidden" name="id" disable="disable" placeholder="id"/></br>
-    <input type="text" name="year" placeholder="year"/></br>
-    <input type="text" name="mark" placeholder="mark"/></br>
-    <input type="text" name="model" placeholder="model"/></br>
-    <input type="submit" value="Ok">
+    <input type="hidden" th:field="*{id}" disable="disable" placeholder="id"/></br>
+    <input type="text" th:field="*{vin}" placeholder="vin"/></br>
+    <input type="text" th:field="*{year}" placeholder="year"/></br>
+    <input type="text" th:field="*{mark}" placeholder="mark"/></br>
+    <input type="text" th:field="*{model}" placeholder="model"/></br>
+    <input type="text" th:field="*{oc_number}" placeholder="oc_number"/></br>
+    <input type="text" th:field="*{registrationNumber}" placeholder="registrationNumber"/></br>
+    <input type="text" th:field="*{fuelType}" placeholder="fuelType"/></br>
+    <input type="text" th:field="*{mileage}" placeholder="mileage"/></br>
+    <input type="text" th:field="*{engineCapacity}" placeholder="engineCapacity"/></br>
+    <input type="text" th:field="*{power}" placeholder="power"/></br>
+    <input type="text" th:field="*{transmission}" placeholder="transmission"/></br>
+    <input type="text" th:field="*{description}" placeholder="description"/></br>
+    <input type="text" th:field="*{test_drive_counter}" placeholder="test_drive_counter"/></br>
+    <input type="text" th:field="*{customers}" placeholder="customers"/></br>
+    <input type="text" th:field="*{transactions}" placeholder="transactions"/></br>
+    <input type="submit" value="ok">
 </form>
 
 </body>

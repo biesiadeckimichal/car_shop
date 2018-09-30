@@ -7,9 +7,15 @@
 <body>
 
 <form method="post" th:action="@{/customer/save}" th:object="${customer}">
-    <input type="text" th:field="*{id}" disabled="disabled"/><br/>
-    <input type="text" th:field="*{firstName}"/><br/>
-    <input type="text" th:field="*{lastName}"/><br/>
+    <input type="text" th:field="*{id}" placeholder="id"/></br>
+    <input type="text" th:field="*{customerNumber}" placeholder="customerNumber"/></br>
+    <input type="text" th:field="*{lastName}" placeholder="lastName"/></br>
+    <input type="text" th:field="*{firstName}" placeholder="firstName"/></br>
+    <input type="text" th:field="*{adress}" placeholder="adress"/></br>
+    <input type="text" th:field="*{nip}" placeholder="nip"/></br>
+    <input type="text" th:field="*{pesel}" placeholder="pesel"/></br>
+    <input type="text" th:field="*{cars}" placeholder="cars"/></br>
+    <input type="text" th:field="*{transactions}" placeholder="transactions"/></br>
     <input type="submit" value="OK">
 </form>
 

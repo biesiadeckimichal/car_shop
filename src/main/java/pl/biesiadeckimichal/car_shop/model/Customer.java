@@ -64,21 +64,39 @@ public class Customer {
         this.transactions = transactions;
     }
 
-    public Customer(Integer id, String lastName, String firstName) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public Integer getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getAdress() {
+        return adress;
+    }
+
+    public Integer getNip() {
+        return nip;
+    }
+
+    public Integer getPesel() {
+        return pesel;
+    }
+
+    public Set<Car> getCars() {
+        return cars;
+    }
+
+    public Set<Transaction> getTransactions() {
+        return transactions;
     }
 }
