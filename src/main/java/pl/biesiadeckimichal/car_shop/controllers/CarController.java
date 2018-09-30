@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.biesiadeckimichal.car_shop.dto.CarDto;
 import pl.biesiadeckimichal.car_shop.model.Car;
 import pl.biesiadeckimichal.car_shop.repositories.CarRepository;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -39,12 +39,30 @@ public class CarController {
 
     @GetMapping("/add")
     public String showAddNewCar(Model model) {
-        model.addAttribute("car", new Car());
+        model.addAttribute("carDto", new CarDto());
         return "car/edit";
     }
 
     @PostMapping("/save")
-    public String saveCustomer(@ModelAttribute("car") Car car, HttpServletRequest httpServletRequest) {
+    public String saveCustomer(@ModelAttribute("carDto") CarDto carDto) {
+
+        Car car = new Car(
+                id
+                vin
+                year
+                mark
+                model
+                oc_number
+                registrationNumber
+                fuelType
+                mileage
+                engineCapacity
+                power
+                transmission
+                description
+                test_drive_counter
+        )
+
         carRepository.save(car);
         return "redirect:/car/list";
     }
