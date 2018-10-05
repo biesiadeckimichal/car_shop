@@ -15,7 +15,7 @@ public class Customer {
     private Integer id;
 
     @Column
-    private Integer customerNumber;
+    private String customerNumber;
 
     @Column
     private String lastName;
@@ -47,7 +47,7 @@ public class Customer {
         return id;
     }
 
-    public Integer getCustomerNumber() {
+    public String getCustomerNumber() {
         return customerNumber;
     }
 
@@ -83,7 +83,7 @@ public class Customer {
         this.id = id;
     }
 
-    public void setCustomerNumber(Integer customerNumber) {
+    public void setCustomerNumber(String customerNumber) {
         this.customerNumber = customerNumber;
     }
 
