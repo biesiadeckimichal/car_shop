@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="index">
 <head>
     <meta charset="UTF-8">
-    <title>Lista</title>
-</head>
+    <title>Customer list</title>
 <body>
-<ul>
-    <li th:each = "customer : ${customers}">
-        <a th:href="@{'/customer/' + ${customer.id} + '/edit'}"
-           th:text="${customer.firstName + ' ' + customer.lastName}"></a>
-    </li>
-</ul>
+
+<main role="main" class="container" layout:fragment="container">
+    <div class="page-header">
+        <h3>Customer list</h3><br>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Numer klient</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Adres</th>
+            <th scope="col">Nip</th>
+            <th scope="col">Pesel</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer: ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.customerNumber}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.adress}"></td>
+            <td th:text="${customer.nip}"></td>
+            <td th:text="${customer.pesel}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
 
 </body>
 </html>

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.biesiadeckimichal.car_shop.model.Car;
 import pl.biesiadeckimichal.car_shop.repositories.CarRepository;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -28,6 +27,13 @@ public class CarController {
         return "car/list";
     }
 
+    @GetMapping("/edit_list")
+    public String showEditList(Model model) {
+        List<Car> cars = carRepository.findAll();
+        model.addAttribute("cars", cars);
+        return "car/edit_list";
+    }
+
     @GetMapping("/{id}/edit")
     public String showEditCar(@PathVariable("id") Integer id, Model model) {
         Car first = carRepository.findById(id).get();
@@ -44,8 +50,15 @@ public class CarController {
     }
 
     @PostMapping("/save")
-    public String saveCustomer(@ModelAttribute("car") Car car, HttpServletRequest httpServletRequest) {
+    public String saveCar(@ModelAttribute("car") Car car) {
         carRepository.save(car);
         return "redirect:/car/list";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteCar(@PathVariable("id") Integer id) {
+        Car first = carRepository.findById(id).get();
+        carRepository.delete(first);
+        return "redirect:/car/edit_list";
     }
 }

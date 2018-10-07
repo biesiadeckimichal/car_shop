@@ -2,6 +2,7 @@ package pl.biesiadeckimichal.car_shop.model;
 
 import lombok.NoArgsConstructor;
 import pl.biesiadeckimichal.car_shop.model.enums.FuelType;
+import pl.biesiadeckimichal.car_shop.model.enums.Transmission;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -46,7 +47,7 @@ public class Car {
     private Integer power;
 
     @Column
-    private String transmission;
+    private Transmission transmission;
 
     @Column
     private String description;
@@ -104,7 +105,7 @@ public class Car {
         return power;
     }
 
-    public String getTransmission() {
+    public Transmission getTransmission() {
         return transmission;
     }
 
@@ -168,7 +169,7 @@ public class Car {
         this.power = power;
     }
 
-    public void setTransmission(String transmission) {
+    public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }
 

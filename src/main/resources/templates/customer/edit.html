@@ -1,21 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--layout musze dodac aby moc w ogole korzystac z jego funkcji-->
+<!--ponizszy zapis mowi aby ta strona korzysta ze strony html indexu
+nastepnie podstawiamy sobie ktorego diva chcemy, w naszym przypadku
+podmieniamy maina-->
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="index">
 <head>
     <meta charset="UTF-8">
     <title>Edycja klienta</title>
 </head>
 <body>
+<!--gwiazdki pozwalaja na skrocenie nazwy, bez nich musialbym pisac np car.id-->
+<!--action odwoluje sie do adnotacji ktore mam przy controllerach
+czyli w przypadku /car/save, odwoluje sie do metody save idac po adnotacjach
+-->
+<main role="main" class="container" layout:fragment="container">
+    <div class="page-header">
+        <h3>Edycja klienta</h3></br>
+    </div>
+    <div>
+        <div class="col-sm-6">
 
-<form method="post" th:action="@{/customer/save}" th:object="${customer}">
-    <input type="hidden" th:field="*{id}" placeholder="id"/></br>
-    <input type="text" th:field="*{customerNumber}" placeholder="customerNumber"/></br>
-    <input type="text" th:field="*{lastName}" placeholder="lastName"/></br>
-    <input type="text" th:field="*{firstName}" placeholder="firstName"/></br>
-    <input type="text" th:field="*{adress}" placeholder="adress"/></br>
-    <input type="text" th:field="*{nip}" placeholder="nip"/></br>
-    <input type="text" th:field="*{pesel}" placeholder="pesel"/></br>
-    <input type="submit" value="OK">
-</form>
+        </div>
+        <div class="col-sm-6">
+            <!--ponizsza linia mowi co sie dzieje po nacisnieciu przycisku-->
+
+            <form method="post" th:action="@{/customer/save}" th:object="${customer}">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" th:field="*{id}">
+                </div>
+                <div class="form-group">
+                    <label for="customerNumber">Numer klienta</label>
+                    <input type="text" class="form-control" id="customerNumber" th:field="*{customerNumber}">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nazwisko</label>
+                    <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Imię</label>
+                    <input type="text" class="form-control" id="firstName" th:field="*{firstName}">
+                </div>
+                <div class="form-group">
+                    <label for="adress">Adres</label>
+                    <input type="text" class="form-control" id="adress" th:field="*{adress}">
+                </div>
+                <div class="form-group">
+                    <label for="nip">Nip</label>
+                    <input type="text" class="form-control" id="nip" th:field="*{nip}">
+                </div>
+                <div class="form-group">
+                    <label for="pesel">Pesel</label>
+                    <input type="text" class="form-control" id="pesel" th:field="*{pesel}">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Wyślij</button>
+            </form>
+        </div>
+    </div>
+</main>
 
 </body>
 </html>
+

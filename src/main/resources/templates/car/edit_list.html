@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit customer list</title>
+</head>
+<body>
+
+<main role="main" class="container" layout:fragment="container">
+    <div class="page-header">
+        <h3>Edit customer list</h3></br>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marka</th>
+            <th scope="col">Model</th>
+            <th scope="col">Rocznik</th>
+            <th scope="col">Przepieg</th>
+            <th scope="col">Szcegoly</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car: ${cars}">
+            <td th:text="${car.id}">1</td>
+            <td th:text="${car.mark}">Marka</td>
+            <td th:text="${car.model}">Model</td>
+            <td th:text="${car.year}">Production Year</td>
+            <td th:text="${car.mileage}">Mileage</td>
+            <td>
+                <a class="btn btn-outline-success" th:href="@{'/car/'+${car.id}+'/details'}">Details</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-warning" th:href="@{'/car/'+${car.id}+'/edit'}">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" th:href="@{'/car/'+${car.id}+'/delete'}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--<td><a class="btn btn-outline-success" th:href="@{'/customer/'+${customer.id}+'/details'}">Details</a></td>-->
+    <!--<td>-->
+    <!--<a class="btn btn-outline-warning" th:href="@{'/customer/'+${customer.id}+'/edit'}">Edytuj</a>-->
+    <!--<a class="btn btn-outline-danger" id="confirm" onclick="return confirm('Czy napewno chcesz usunac?')"-->
+    <!--th:href="@{'/customer/'+${customer.id}+'/delete'}">Usun</a>-->
+    <!--</td>-->
+
+
+    <!--<td th:text="${customer.id}"></td>-->
+    <!--<td th:text="${customer.lastName}"></td>-->
+    <!--<td th:text="${customer.firstName}"></td>-->
+    <!--<td th:text="${customer.adress}"></td>-->
+    <!--<td th:text="${customer.nip}"></td>-->
+    <!--<td th:text="${customer.pesel}"></td>-->
+
+</main>
+
+</body>
+</html>

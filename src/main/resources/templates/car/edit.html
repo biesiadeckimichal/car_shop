@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en" xmlns="http://www.w3.org/1999/html">
+<!--layout musze dodac aby moc w ogole korzystac z jego funkcji-->
+<!--ponizszy zapis mowi aby ta strona korzysta ze strony html indexu
+nastepnie podstawiamy sobie ktorego diva chcemy, w naszym przypadku
+podmieniamy maina-->
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="index">
 <head>
     <meta charset="UTF-8">
     <title>Edycja samochodu</title>
@@ -9,22 +16,78 @@
 <!--action odwoluje sie do adnotacji ktore mam przy controllerach
 czyli w przypadku /car/save, odwoluje sie do metody save idac po adnotacjach
 -->
-<form method="post" th:action="@{/car/save}" th:object="${car}">
-    <input type="hidden" th:field="*{id}" disable="disable" placeholder="id"/></br>
-    <input type="text" th:field="*{vin}" placeholder="vin"/></br>
-    <input type="text" th:field="*{year}" placeholder="year"/></br>
-    <input type="text" th:field="*{mark}" placeholder="mark"/></br>
-    <input type="text" th:field="*{model}" placeholder="model"/></br>
-    <input type="text" th:field="*{oc_number}" placeholder="oc_number"/></br>
-    <input type="text" th:field="*{registrationNumber}" placeholder="registrationNumber"/></br>
-    <input type="text" th:field="*{fuelType}" placeholder="fuelType"/></br>
-    <input type="text" th:field="*{mileage}" placeholder="mileage"/></br>
-    <input type="text" th:field="*{engineCapacity}" placeholder="engineCapacity"/></br>
-    <input type="text" th:field="*{power}" placeholder="power"/></br>
-    <input type="text" th:field="*{transmission}" placeholder="transmission"/></br>
-    <input type="text" th:field="*{description}" placeholder="description"/></br>
-    <input type="submit" value="ok">
-</form>
+<main role="main" class="container" layout:fragment="container">
+    <div class="page-header">
+        <h3>Edycja samochodu</h3></br>
+    </div>
+    <div>
+        <div class="col-sm-6">
+
+        </div>
+        <div class="col-sm-6">
+            <!--ponizsza linia mowi co sie dzieje po nacisnieciu przycisku-->
+
+            <form method="post" th:action="@{/car/save}" th:object="${car}">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" th:field="*{id}">
+                </div>
+                <div class="form-group">
+                    <label for="vin">Vin</label>
+                    <input type="text" class="form-control" id="vin" th:field="*{vin}">
+                </div>
+                <div class="form-group">
+                    <label for="year">Rocznik</label>
+                    <input type="text" class="form-control" id="year" th:field="*{year}">
+                </div>
+                <div class="form-group">
+                    <label for="mark">Marka</label>
+                    <input type="text" class="form-control" id="mark" th:field="*{mark}">
+                </div>
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" class="form-control" id="model" th:field="*{model}">
+                </div>
+                <div class="form-group">
+                    <label for="oc_number">Numer OC</label>
+                    <input type="text" class="form-control" id="oc_number" th:field="*{oc_number}">
+                </div>
+                <div class="form-group">
+                    <label for="registrationNumber">Numer rejestracji</label>
+                    <input type="text" class="form-control" id="registrationNumber" th:field="*{registrationNumber}">
+                </div>
+                <div class="form-group">
+                    <label for="fuelType">Rodzaj paliwa</label>
+                    <select class="form-control" id="fuelType" th:field="*{fuelType}">
+                        <option value="PETROL">PETROL</option>
+                        <option value="OIL">OIL</option>
+                        <option value="GAS">GAS</option>
+                        <option value="POWER">POWER</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mileage">Przebieg</label>
+                    <input type="text" class="form-control" id="mileage" th:field="*{mileage}">
+                </div>
+                <div class="form-group">
+                    <label for="engineCapacity">Pojemność silnika</label>
+                    <input type="text" class="form-control" id="engineCapacity" th:field="*{engineCapacity}">
+                </div>
+                <div class="form-group">
+                    <label for="power">Moc</label>
+                    <input type="text" class="form-control" id="power" th:field="*{power}">
+                </div>
+                <div class="form-group">
+                    <label for="transmission">Skrzynia biegów</label>
+                    <select class="form-control" id="transmission" th:field="*{transmission}">
+                        <option value="AUTOMAT">AUTOMAT</option>
+                        <option value="MANUAL">MANUAL</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Wyślij</button>
+            </form>
+        </div>
+    </div>
+</main>
 
 </body>
 </html>

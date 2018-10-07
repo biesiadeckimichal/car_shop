@@ -27,6 +27,13 @@ public class CustomerController {
         return "customer/list";
     }
 
+    @GetMapping("/edit_list")
+    public String showEditList(Model model) {
+        List<Customer> customers = customerRepository.findAll();
+        model.addAttribute("customers", customers);
+        return "customer/edit_list";
+    }
+
 //    @PathVariable powoduje przeniesienie tego co wpisujemy w url (czyli tego co jest w getMapping)
 //    w tym przypadku id, do pola metody showEditCustomer
 //    "customer" w tym przypadku odnosi sie do thymleaf'a ktory pozniej wpisujemy w plikuk html
@@ -47,6 +54,12 @@ public class CustomerController {
     public String saveCustomer(@ModelAttribute("customer") Customer customer) {
         customerRepository.save(customer);
         return "redirect:/customer/list";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteCustomer(@PathVariable("id") Integer id) {
+        customerRepository.deleteById(id);
+        return "redirect:/customer/edit_list";
     }
 
 }
